@@ -10,7 +10,7 @@ const cors=require('cors')
 // express app
 const app = express()
 app.use(cors({
-  origin: [process.env.FRONTEND_URL], //allow request only from these site
+  origin: https://x-frontend-rho.vercel.app, //allow request only from these site
   methods: ["GET","POST","PATCH","DELETE"],
   credentials: true, //for getting cookies and other headers from backend
   samesite : "none",
