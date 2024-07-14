@@ -10,7 +10,7 @@ const cors=require('cors')
 // express app
 const app = express()
 app.use(cors({
-  origin: https://x-frontend-rho.vercel.app, //allow request only from these site
+  origin: [process.env.FRONTEND_URL], //allow request only from these site
   methods: ["GET","POST","PATCH","DELETE"],
   credentials: true, //for getting cookies and other headers from backend
   samesite : "none",
@@ -31,8 +31,8 @@ app.use((req, res, next) => {
 })
 
 // routes
-app.use('https://x-backend-uxho.onrender.com/api/workouts', workoutRoutes)
-app.use('https://x-backend-uxho.onrender.com/api/user', userRoutes)
+app.use('/api/workouts', workoutRoutes)
+app.use('/api/user', userRoutes)
 
 // connect to db
 mongoose.connect(process.env.MONGO_URI)
